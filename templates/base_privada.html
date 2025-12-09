@@ -120,6 +120,12 @@
     <!-- Chat Widget (apenas para usuários logados) -->
     {% if request.session.get('usuario_logado') %}
     {% include 'components/chat_widget.html' %}
+    {% if usuario_logado and usuario_logado.perfil == 'Autor' %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if '/artigos/meus' in request.path else '' }}"
+                            href="/artigos/meus"
+                            {{ 'aria-current=page' if '/artigos/meus' in request.path else '' }}>Meus Artigos</a>
+                    </li>
     {% endif %}
 
     <!-- Footer -->
